@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Roboto:ital,wght@1,300&family=Yellowtail&display=swap');
+    *{
+         margin:0;
+         padding:0;
+         box-sizing: border-box;
+         font-family: 'Jua', sans-serif;
+     }
+     body{
+         background-image: linear-gradient(90deg,rgb(252, 121, 143),rgb(241, 32, 77));
+         color: rgb(32, 29, 29);
+         overflow: hidden;
+         margin:3% 10% ;
+         height: 80vh;
+         padding: none;
+         position: relative;
+       
+     }
+
+     header{
+         position: relative;
+         height: 20%;
+         display: flex;
+         font-size: 1.5vw;
+         background-color: rgb(243, 245, 244);
+         color:rgb(14, 67, 80); 
+         border-radius: 7px 7px 0px 0px; 
+         align-items: center;
+     }
+     header h1{
+         display: flex;
+         flex: 1;
+        justify-content: center;  
+       
+     }
+     header button{
+        position: absolute;
+        right: 0;
+        color: rgb(243, 245, 244);
+        background-color:rgb(14, 67, 80); 
+        padding: 10px 15px;
+        font-size: 1em;
+        border-radius: 10px;
+        outline: none;
+        margin-right: 20px;
+        text-align: center;
+     }
+     .sidenav{
+        font-family: 'Jua', sans-serif;
+        border-radius: 0px 0px 0px 7px;
+         background-color: rgb(227, 226, 229);
+         height:90%;
+         position: absolute;
+         width: 15%;
+         padding:none;
+     }
+     .sidenav ul{
+         display:flex;
+         text-align: center;
+         list-style: none;
+         color:rgb(14, 67, 80); 
+         display:flex;
+         flex-direction: column;
+         width: 100%;
+         height: 100%;
+         justify-content: space-between;
+         padding: 5px;
+        }
+     .sidenav ul li{
+         display: flex;
+         flex:1;
+         text-align: center;
+         flex-direction: row;
+         justify-content:center;
+         align-items: center;
+         cursor: pointer; 
+         border-radius: 5px;
+         padding:none;
+         margin: 25% 0%;
+    
+        }
+     .active{
+        background-color: rgb(243, 245, 244) ;
+        font-size: 1.2em;
+     }
+     .sidenav ul li:hover{
+      
+        color: rgb(4, 35, 43); ;
+        font-size: 1.2em;
+      
+    }
+
+     
+
+   
+    .listcontainer,.noitemsfound{
+        background-color: rgb(217, 223, 220);
+        left: 15%;
+        width: 85%;
+        height: 90%;
+        position: relative;
+        border-radius: 0px 0px 7px 0px;
+    }
+    .noitemsfound{
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .todolist{
+        list-style: none; 
+        position: relative;
+        display: block;  
+        height:69vh ;
+        width: 100%;
+        overflow-y:auto;
+        overflow-x: hidden;
+        border: 5px solid rgb(217, 223, 220);;  
+    }
+  
+     .todolist li{
+        position: relative;
+        outline: none;
+        margin-bottom:1.5px;
+        width: 100%; 
+        padding: 10px;
+        border-radius: 5px;
+        background-color:  rgb(250, 250, 250);
+        word-wrap: break-word;
+        text-align: right;
+    }
+    .task{
+        position: relative;
+        color: rgb(49, 20, 12);
+        border :none;
+        padding: 0.3em;
+        font-size: 1.5em;
+        text-align: left;
+        pointer-events: none;
+        min-width: 70%;
+    }
+    .editask{
+        border: 2px solid rgb(82, 77, 77);
+        outline: none;
+        pointer-events: visible;
+     
+    }
+    .checkbtn{
+        position: relative;
+         background-color: transparent;
+        color:forestgreen;
+        opacity: 0.8;
+        border:none;
+        padding:0.5em;
+        font-size: 1.5em;
+        width: 10%;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .checkbtn:hover{
+        transition:all 0.3s ease;
+        background-color:forestgreen;
+        opacity: 0.9;
+        color: white;
+
+    }
+    .editbtn{
+        position:relative;
+        background-color: transparent;
+        color:#6383eb;
+        border: none;
+        padding:0.5em;
+        font-size: 1.5em;  
+        width: 10%;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .editbtn:hover{
+        transition:all 0.3s ease;
+        background-color:#6383eb;
+        color: white;
+    }
+    .deletebtn{
+        position: relative;
+        background-color: transparent;
+        color:#d30c0c;
+        border: none;
+        padding:0.5em;
+        font-size: 1.5em;   
+        width: 10%;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .deletebtn:hover{
+        transition:all 0.3s ease;
+        background-color:#d30c0c ;
+        color:white;
+    }
+    .completed{
+        text-decoration: line-through;
+        opacity:0.7;
+    }  
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+       
+      ::-webkit-scrollbar-thumb {
+        background: #888; 
+        border-radius: 10px;
+      }   
+    
+   
+
+
+     
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        backdrop-filter: blur(2px);
+        padding-top: 50px;
+        align-items: center;
+      }
+
+      .container {
+        padding: 20px;
+        background-color: rgb(243, 245, 244);
+        width: 30%;
+        text-align: center;
+        border:1px solid rgb(59, 50, 50);
+        border-radius: 5px;
+        min-height :30%;
+        color: #3f0101;
+        font-size: 1.5em;
+        margin: auto;
+        margin-top: 13%;
+    }
+     .modal button{
+         max-width: 40%;
+         border-radius: 5px;
+         font-size: 1em;
+         margin: 10px;
+         outline: none;
+         border:none;
+         padding: 6px;
+     }
+     
+     .modal p,ul li p{   
+     word-wrap: break-word;
+     }
+     #alert .container{
+         position: fixed;
+          left: 35%;
+          top: 18%;
+          margin-top:2%;
+          min-height: 5vh;
+     }
+     .cancelbutton{
+       color: white;
+       background-color:rgb(97, 96, 96);
+       opacity:0.7 ;
+     }
+     .deletebutton{
+         color:white;
+        background-color: #d30c0c;
+        opacity:0.7;
+     }
+     .modal button:hover{
+         opacity:1;
+     }
+
+     form{
+        background-color: rgb(250, 250, 250);
+        padding: 20px;
+        width:35%;
+        border-radius: 10px;
+        font-size: 1em;
+        color:rgb(61, 2, 2);
+        border: 2px solid rgb(228, 38, 86);
+        margin: auto;
+        margin-top: 13%;
+        min-height: 35%;
+     }
+     .close {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 40px;
+        font-weight: bold;
+        color: #615656;
+        cursor: pointer;
+      }
+     form input,form button{
+        background-color:transparent;
+         position:relative;
+         padding:0.5em;
+         font-size: 1.2em;
+         border: none;
+         outline: none;
+     }
+    .modal form input{
+         width: 80%;
+         border-bottom: 1px solid rgb(61, 2, 2);
+         background-color:transparent ;
+     }
+    .modal form button{
+        cursor:pointer;
+        border-radius: 5px;
+        color:rgb(240, 60, 60);
+        font-size:1.5em;
+        padding: 10px;
+    }
+ 
+    .modal form button:hover{
+        background:rgb(240, 60, 60);
+        color:white;
+        transition: 0.3s;      
+    }
+
+     @media only screen and (max-width:800px)
+     {
+         header{
+             font-size: 10px;
+             height: 15%;
+         }
+         form,.container{
+             padding:25px ;
+             font-size: 1em;
+             width: 80%;
+         }
+         .container{
+             width: 60%;
+         }
+         .listcontainer li{
+            font-size: 0.7em;
+         }
+         .active,.sidenav ul li:hover,li{
+             font-size: 15px;
+          }
+     }
+     
+   
+    @media only screen and (max-width:500px)
+     {
+        header{
+            font-size: 10px;
+        }
+         form,.container{
+           position: static;
+           width: 70%; 
+           font-size: small;          
+         }
+         form{
+             padding:15px;
+         }
+         .listcontainer{
+            font-size: 10px; 
+         }
+         .sidenav,.listcontainer,.noitemsfound{
+            position: relative;
+            width: 100%;
+            left: 0;
+            border-radius: 5px;
+         }
+         .sidenav{
+             display: flex;
+             height: 40px;
+             border-radius: 0px;
+         }
+         .sidenav ul{
+             flex-direction: row;
+         }
+         .sidenav ul li{
+            display: flex;
+            flex:1;
+           
+            text-align: center;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer; 
+            border-radius: 5px;
+            padding:0px;
+           margin: 0%;
+       
+           }
+ 
+     }
+    
+     
+      
+      

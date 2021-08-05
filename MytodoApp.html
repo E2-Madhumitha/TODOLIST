@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My todo App</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="todo.css">
+   
+</head>
+<body>
+
+<header>
+    <h1>Todo App</h1>
+    <button id="add"><i class="fa fa-plus"></i> &nbsp; &nbsp; Add Task</button>
+</header>
+
+<div class="sidenav">
+  <ul id="navlist" style="font-size: x-large;">
+      <li class="listitem active" id="added" >
+        <i class="fa fa-tasks" id="added"></i>&nbsp;&nbsp;
+        <span id="added">All tasks</span> </li>
+      </li>
+      <li class="listitem" id="to do" > 
+        <i class="fa fa-list" id="to do"></i>&nbsp;&nbsp;
+      <span id="to do"> Tasks to do</span></li>
+      </li>
+      <li class="listitem" id="completed" style="border-radius: 0px 0px 0px 7px;"> 
+        <i class="fa fa-check" id="completed" ></i>&nbsp;
+        <span id="completed" >completed tasks</li></li>
+      </li>    
+  </ul>  
+</div>
+
+<div class="noitemsfound">
+  No items found
+</div>
+<div class="listcontainer">
+    <ul class="todolist">
+    </ul>
+     <div>Note:click on <i class="fa fa-check"></i> once you completed the task</p></div>
+</div>
+
+
+<div  id="addnewitem"  class="modal">
+    <form>
+        <span onclick="document.getElementById('addnewitem').style.display='none'" class="close">&times;</span>
+   <h1></h1>
+    <br>
+    <input autocomplete="off" id="todotask" name="todo" type="textbox" placeholder="enter tasks to do...">
+    <button id="addbtn" name="todobutton" type="button">
+        <i ></i>
+    </button>
+    <P></P>
+    </form>
+</div>
+
+
+<div id="deletemodal" class="modal">
+    <div class="container">
+      <i class="fa fa-trash-alt" style="font-size:48px;color:#d30c0c;  margin: 10px;"></i>
+      <p id="tasktodo"></p>
+      <p id="status"></p>
+      <div class="action">
+        <button type="button"  class="deletebutton">Delete</button>
+        <button type="button" onclick="document.getElementById('deletemodal').style.display='none'" class="cancelbutton">cancel</button>  
+      </div>
+  </div>
+</div>
+
+<div id="alert" class="modal" style="backdrop-filter: none;" onclick="document.getElementById('alert').style.display='none'"> 
+    <div class="container" >
+        <p id="message"></p>
+    </div>
+</div>
+
+
+ <script src="todo.js" ></script>
+</body>
+</html>
