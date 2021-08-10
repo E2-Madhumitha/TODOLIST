@@ -227,11 +227,12 @@
         backdrop-filter: blur(2px);
         padding-top: 50px;
         align-items: center;
+        justify-content: center;
       }
 
-      .container {
+      .container,form {
+        background-color: rgb(250, 250, 250);
         padding: 20px;
-        background-color: rgb(243, 245, 244);
         width: 30%;
         text-align: center;
         border:1px solid rgb(59, 50, 50);
@@ -239,89 +240,68 @@
         min-height :30%;
         color: #3f0101;
         font-size: 1.5em;
-        margin: auto;
-        margin-top: 13%;
+    }
+
+    form{
+        font-size: 1em;
+        color:rgb(61, 2, 2);
+        border: 2px solid rgb(228, 38, 86);
+     }
+
+     #alert .container{
+         position: fixed;
+         left: 35%;
+         top: 18%;
+         margin-top:2%;
+         min-height: 5vh;
     }
      .modal button{
-         max-width: 40%;
+         width:30%;
          border-radius: 5px;
          font-size: 1em;
          margin: 10px;
          outline: none;
          border:none;
          padding: 6px;
-     }
-     
-     .modal p,ul li p{   
-     word-wrap: break-word;
-     }
-     #alert .container{
-         position: fixed;
-          left: 35%;
-          top: 18%;
-          margin-top:2%;
-          min-height: 5vh;
+         color: white;
+         cursor: pointer;
+         opacity:0.8; 
      }
      .cancelbutton{
-       color: white;
        background-color:rgb(97, 96, 96);
-       opacity:0.7 ;
      }
      .deletebutton{
-         color:white;
         background-color: #d30c0c;
-        opacity:0.7;
      }
+     .modal form #formcancel{
+         font-size: 1.5em;
+        background-color:rgb(43, 42, 42); 
+    }
+    .modal form #formadd{
+        font-size: 1.5em;
+        background-color:rgb(245, 63, 93);
+    }
      .modal button:hover{
-         opacity:1;
+            transition: 0.3s;    
+            opacity: 1; 
      }
 
-     form{
-        background-color: rgb(250, 250, 250);
-        padding: 20px;
-        width:35%;
-        border-radius: 10px;
-        font-size: 1em;
-        color:rgb(61, 2, 2);
-        border: 2px solid rgb(228, 38, 86);
-        margin: auto;
-        margin-top: 13%;
-        min-height: 35%;
-     }
-     .close {
-        display: flex;
-        justify-content: flex-end;
-        font-size: 40px;
-        font-weight: bold;
-        color: #615656;
-        cursor: pointer;
-      }
-     form input,form button{
+     form input{
         background-color:transparent;
          position:relative;
          padding:0.5em;
          font-size: 1.2em;
          border: none;
          outline: none;
-     }
-    .modal form input{
+         margin-top: 30px;
          width: 80%;
          border-bottom: 1px solid rgb(61, 2, 2);
          background-color:transparent ;
      }
-    .modal form button{
-        cursor:pointer;
-        border-radius: 5px;
-        color:rgb(240, 60, 60);
-        font-size:1.5em;
-        padding: 10px;
-    }
- 
-    .modal form button:hover{
-        background:rgb(240, 60, 60);
-        color:white;
-        transition: 0.3s;      
-    }
+
+    .modal p,ul li p{   
+        word-wrap: break-word;
+        }
 
      @media only screen and (max-width:800px)
      {
