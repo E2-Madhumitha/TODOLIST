@@ -1,9 +1,10 @@
-var selectoption=document.querySelector(".sidenav");
+var selectoption=document.querySelector(".navlist");
 var todolist=document.querySelector(".todolist");
 var listcontainer=document.querySelector(".listcontainer");
 var noitemsdisplay=document.querySelector(".noitemsfound");
 var modal=document.getElementById("addnewitem");
 document.querySelector("#add").addEventListener("click",add);  
+var todotask=document.querySelector("#todotask");
 var todos;
 if(localStorage.getItem('todos')===null)
 {
@@ -15,20 +16,25 @@ else{
 }
 
 function add(){
-    modal.style.display='block';
+    modal.style.display='flex';
     var heading=modal.querySelector("h1");
-    heading.innerHTML="Add Task";
-    var addbtn=modal.querySelector("i");
-    addbtn.className="fas fa-plus";
-    addbtn.onclick=additems; 
+    heading.innerHTML=" Add Task";
+    heading.className="fas fa-plus";
+    var button=modal.querySelectorAll("button");
+    button[1].onclick=function(){
+       todotask.value="";
+       modal.style.display="none"
+    }
+    button[0].innerHTML="Submit"
+    button[0].onclick=additems; 
 }
 
 function additems(){
-    var todotask=document.querySelector("#todotask");
+   
     if (todotask.value =='') {
        var message=modal.querySelector("p");
-       message.innerHTML="Type something to add task";
-       setTimeout(function(){message.innerHTML=""},1500);
+       message.innerText="Type something to add task";
+       setTimeout(function(){message.innerHTML="&nbsp;"},1500);
      } 
      else {
         savetodo(todotask.value);
@@ -97,10 +103,7 @@ var editTask=function(){
         }
       }
       console.log(index);
-
     console.log(todos);
-    
-      
      if(listItem.classList.contains("completed")){
     var modal=document.getElementById("alert");
     modal.style.display='block';
@@ -112,16 +115,16 @@ var editTask=function(){
         else{
             console.log("inside else")
     var modal=document.getElementById("addnewitem");
-    modal.style.display='block';
+    modal.style.display='flex';
     var heading=modal.querySelector("h1");
-    heading.innerHTML="Edit Task";
-    var savebtn=modal.querySelector("i");
-    savebtn.title="save changes"
-    savebtn.className="fas fa-edit";
+    heading.innerHTML=" Edit Task";
+    heading.className="fas fa-edit"
     var edit=modal.querySelector("input");
     edit.value=task.innerHTML;
     console.log(task.innerHTML);
-    savebtn.onclick=function(){
+    var action=modal.querySelectorAll("button");
+    action[0].innerHTML="save"
+    action[0].onclick=function(){
    
 
     task.innerHTML=edit.value;
@@ -140,6 +143,10 @@ var editTask=function(){
       message.innerHTML=`Task edited successfully!`;
       setTimeout(function(){alert.style.display="none"},1300);
 
+    }
+    action[1].onclick=function(){
+        edit.value="";
+        modal.style.display="none"
     }
     } 
 };
@@ -183,7 +190,7 @@ localStorage.setItem("todos",JSON.stringify(todos));
         }
     }
    var popup=document.getElementById("deletemodal");
-   popup.style.display='block';
+   popup.style.display='flex';
    var action=popup.querySelectorAll("button");
    var tasktodo=popup.querySelectorAll("p");
    tasktodo[0].innerHTML="Task - "+taskname.innerHTML;
